@@ -8,6 +8,7 @@ header{
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     z-index: 1;
     gap: 50px;
+    background-color: white;
 }
 
 .leftSection img{
