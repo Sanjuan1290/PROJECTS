@@ -24,13 +24,72 @@
             background-color: rgb(248,248,249);
         }
 
+        main{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 70px 25px 50px 85px;
+            gap: 10px;
+        }
+        .content-container{
+            margin-bottom: 30px;
+        }
 
-        
-        
+        .top-section{
+            position: relative;
+        }
+        .top-section img{
+            width: 100%;
+            object-fit: cover;
+        }
+        .top-section p{
+            background-color: black;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            padding: 3px 5px;
+        }
+
+        .bottom-section{
+            display: flex;
+            padding-top: 4px;
+        }
+
+        .profile-container{
+            padding: 3px 10px 0px 0px;
+        }
+        .profile-container img{
+            width: 33px;
+            border-radius: 50%;
+        }
+
+
+        .about-video{
+            display: flex;
+            flex-direction: column;
+        }
+        .about-video a{
+            text-decoration: none;
+            color: black;
+        }
+        .title{
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .content_creator_name{
+           padding-top: 7px;
+        }
+        .about-text{
+            font-size: 12px;
+            opacity: .7;
+            font-weight: 400;
+            margin-top: 3px;
+        }
     </style>
 </head>
 <body>
-    
     <header>
         <div class="leftSection">
             <img src="./images/youtubeIcons/youtube-logo.svg" alt="youtubeLogo">
@@ -68,7 +127,6 @@
             </div>
         </div>
     </header>
-
     <section class="sidebar">
         <div class="menu-container">
             <img src="./images/youtubeIcons/hamburger-menu.svg" alt="menuIcon">
@@ -104,6 +162,27 @@
         </div>
 
     </section>
+
+    <main class="video-grid">
+        <div class="content-container">
+            <div class="top-section">
+                <img src="./images/thumbnail/thumbnail-1.webp" alt="image1">
+                <p>14:20</p>
+            </div>
+
+            <div class="bottom-section">
+                <div class="profile-container">
+                    <a href="https://www.youtube.com/c/mkbhd"><img src="./images/profileLogo/image1.png" alt="image1"></a>
+                </div>
+
+                <div class="about-video">
+                    <a href="https://www.youtube.com/watch?v=n2RNcPRtAiY" class="title">Talking Tech and AI with Google CEO Sundar Pichai!</a>
+                    <a href="https://www.youtube.com/c/mkbhd" class="about-text content_creator_name">Marques Brownlee</a>
+                    <p class="about-text">3.4M views &middot 6 months ago</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script type="module" src="./index.js"></script>
 </body>
