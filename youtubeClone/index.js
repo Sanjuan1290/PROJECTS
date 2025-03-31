@@ -59,8 +59,6 @@ function getPublishDate(years, months, days, hours, minutes, seconds){
     if(minutes) return minutes == 1 ? `${minutes} minute ago` : `${minutes} minutes ago`;
     return seconds == 1 ? `${seconds} second ago` : `${seconds} seconds ago`;
 
-
-
 }
 
 renderContents();
