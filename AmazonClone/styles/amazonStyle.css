@@ -8,6 +8,10 @@ nav{
     height: 50px;
     padding: 5px 13px;
     background-color: rgb(18,25,32);
+    transition: padding-bottom 0.2s ease-in-out;
+}
+.navPhone{
+    padding-bottom: 100px;
 }
 
 .left-section{
@@ -19,8 +23,11 @@ nav{
     border: 1px solid rgba(255, 255, 255, 0);
 }
 
-.left-section img{
+.computer_imgIcon{
     width: 90px;
+}
+.phone_imgIcon{
+    width: 30px;
 }
 
 .mid-section{
@@ -61,6 +68,12 @@ nav{
     color: white;
     gap: 1px;
 }
+.burgerMenu{
+    padding: 5px;
+}
+.burgerMenu:hover{
+    cursor: pointer;
+}
 
 .returns_orders{
     font-size: 12px;
@@ -99,3 +112,4 @@ nav{
     border: 1px solid white;
     cursor: pointer;
 }
+

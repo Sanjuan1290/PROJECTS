@@ -22,36 +22,42 @@
             height: 2000px;
         }
 
+        .burger_click{
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            color: white;
+            top: 60px;
+            left: 0;
+            right: 0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .return_orders_phone, .cart_phone {
+            width: 100%;
+            text-align: center;
+            padding: 12px 0px;
+            visibility: hidden;
+            transition: visibility .2s ease;
+        }
+
+        .return_orders_phone:hover, .cart_phone:hover {
+            background-color: rgba(128, 128, 128, 0.212);
+            cursor: pointer;
+        }
+
+        .show{
+            visibility: visible;
+        }
+
+
     </style>
 </head>
 <body>
+    <header class="navigation">
 
-    <nav>
-        <div class="left-section">
-            <img src="./images/amazon-logo-white.png" alt="Amazon Logo">
-        </div>
+    </header>
 
-        <div class="mid-section">
-            <input type="text" placeholder="Search">
-            <img src="./images/icons/search-icon.png" alt="searchIcon">
-        </div>
-
-        <div class="right-section">
-            <div class="returns_orders">
-                <p>Returns</p>
-                <p>& Orders</p>
-            </div>
-
-            <div class="cart">
-                <div class="cart-quantity">
-                    <img src="./images/icons/cart-icon.png" alt="cart Icon">
-                    <p>20</p>
-                </div>
-                 
-                <p>Cart</p>
-            </div>
-        </div>
-    </nav>
-
+    <script type="module" src="./scripts/amazon.js"></script>
 </body>
 </html>
