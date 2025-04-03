@@ -45,13 +45,14 @@ nav{
     border: none;
     outline: none;
     width: 100%;
+    border: 2px solid rgba(255, 153, 1, 0);
 }
 .mid-section input:focus{
     border: 2px solid rgb(255,152,1);
 }
 .mid-section img{
     width: 20px;
-    padding: 8.4px 11px;
+    padding: 10.5px 12px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-left: -5px;
@@ -113,3 +114,31 @@ nav{
     cursor: pointer;
 }
 
+
+.burger_click{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    color: white;
+    top: 60px;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+.return_orders_phone, .cart_phone {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0px;
+    visibility: hidden;
+    transition: visibility .2s ease;
+}
+
+.return_orders_phone:hover, .cart_phone:hover {
+    background-color: rgba(128, 128, 128, 0.212);
+    cursor: pointer;
+}
+
+.show{
+    visibility: visible;
+}
