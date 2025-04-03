@@ -60,7 +60,7 @@ let HTML_Phone =
         </div>
     `;
 
-function renderNavBar(){
+export function renderNavBar(){
     if(window.innerWidth <= 575){
         navigation_elem.innerHTML = HTML_Phone;
     }else{
@@ -82,6 +82,3 @@ function renderNavBar(){
     }
 
 }
-
-renderNavBar();
-window.addEventListener('resize', renderNavBar)
