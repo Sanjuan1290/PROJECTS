@@ -1,3 +1,4 @@
+
 nav{
     display: flex;
     position: fixed;
@@ -132,6 +133,7 @@ nav{
     right: 0;
     font-weight: bold;
     font-size: 14px;
+    z-index: 100;
 }
 .return_orders_phone, .cart_phone {
     width: 100%;

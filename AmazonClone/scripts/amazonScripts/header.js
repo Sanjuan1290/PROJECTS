@@ -1,7 +1,10 @@
+import {getCartTotalQuantity} from '../cart.js'
 
 const navigation_elem = document.querySelector('.navigation');
 
-let HTML_Computer = 
+export function renderNavBar(){
+    
+    let HTML_Computer = 
     `
     <nav>
         <div class="left-section">
@@ -19,11 +22,11 @@ let HTML_Computer =
                     <p>& Orders</p>
                 </div>
 
-                <a href="./checkout.html" class="link-checkout">
+                <a href="./././checkout.html" class="link-checkout">
                     <div class="cart">
                         <div class="cart-quantity">
                             <img src="./images/icons/cart-icon.png" alt="cart Icon">
-                            <p>20</p>
+                            <p>${getCartTotalQuantity()}</p>
                         </div>
                         
                         <p>Cart</p>
@@ -32,18 +35,18 @@ let HTML_Computer =
             </div>
         </nav>
     `;
-let HTML_Phone = 
+    let HTML_Phone = 
     `
         <nav>
             <div class="left-section">
                 <img class="phone_imgIcon" src="./images/amazon-mobile-logo-white.png" alt="Amazon Logo">
             </div>
-    
+
             <div class="mid-section">
                 <input type="text" placeholder="Search">
                 <img src="./images/icons/search-icon.png" alt="searchIcon">
             </div>
-    
+
             <div class="right-section">
                 <img class="burgerMenu" src="./images/icons/hamburger-menu.png" alt="burger Menu">
             </div>
@@ -54,15 +57,16 @@ let HTML_Phone =
                 <p>Returns & Orders</p>
             </div>
 
-            <div class="cart_phone">
-                <div>
-                    <p>Cart (<span>20</span>)</p>
+            <a href="./././checkout.html" class="link-checkout">
+                <div class="cart_phone">
+                    <div>
+                        <p>Cart (<span>${getCartTotalQuantity()}</span>)</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     `;
 
-export function renderNavBar(){
     if(window.innerWidth <= 575){
         navigation_elem.innerHTML = HTML_Phone;
     }else{
