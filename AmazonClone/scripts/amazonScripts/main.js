@@ -21,7 +21,7 @@ export function renderProducts(products){
 
                     <p class="product-price">$${(product.priceCents / 100).toFixed(2)}</p>
                     
-                    <select class="select-product-quantity">
+                    <select class="select-product-quantity js-select-product-quantity-${product.id}">
                         <option value="1" selected>1</option>
                         <option value="2" >2</option>
                         <option value="3" >3</option>
@@ -45,6 +45,17 @@ export function renderProducts(products){
          `;
     });
 
+    document.querySelectorAll(`.add-to-cart-btn`).forEach(btn => {
+
+
+        btn.addEventListener('click' , () => { 
+            const btn_productId = btn.dataset.productId;
+            const quantity = Number(document.querySelector(`.js-select-product-quantity-${btn_productId}`).value);
+
+            addToCart(btn_productId, quantity);
+        })
+        
+    })
     showCheckMark();
 }
 

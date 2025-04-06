@@ -19,14 +19,16 @@ let HTML_Computer =
                     <p>& Orders</p>
                 </div>
 
-                <div class="cart">
-                    <div class="cart-quantity">
-                        <img src="./images/icons/cart-icon.png" alt="cart Icon">
-                        <p>20</p>
+                <a href="./checkout.html" class="link-checkout">
+                    <div class="cart">
+                        <div class="cart-quantity">
+                            <img src="./images/icons/cart-icon.png" alt="cart Icon">
+                            <p>20</p>
+                        </div>
+                        
+                        <p>Cart</p>
                     </div>
-                    
-                    <p>Cart</p>
-                </div>
+                </a>
             </div>
         </nav>
     `;

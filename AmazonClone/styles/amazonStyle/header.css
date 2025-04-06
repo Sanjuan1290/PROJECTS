@@ -70,6 +70,12 @@ nav{
     color: white;
     gap: 1px;
 }
+
+.link-checkout{
+    text-decoration: none;
+    color: white;
+}
+
 .burgerMenu{
     padding: 5px;
 }
