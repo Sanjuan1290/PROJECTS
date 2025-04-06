@@ -9,6 +9,7 @@ nav{
     padding: 5px 13px;
     background-color: rgb(18,25,32);
     transition: padding-bottom 0.2s ease-in-out;
+    z-index: 100;
 }
 .navPhone{
     padding-bottom: 100px;

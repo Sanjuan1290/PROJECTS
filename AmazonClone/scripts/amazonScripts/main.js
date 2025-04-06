@@ -1,4 +1,4 @@
-
+import { addToCart } from '../cart.js';
 let main_grid_elem = document.querySelector(`.main-grid`);
 
 export function renderProducts(products){
@@ -34,9 +34,43 @@ export function renderProducts(products){
                         <option value="10" >10</option>
                     </select>
 
-                    <button class="add-to-cart-btn">Add to cart</button>
+                    <div class="checkmark-added js-checkmark-added-${product.id}">
+                        <img src="./images/icons/checkmark.png" alt="Checkmark">
+                        <p>Added</p>
+                    </div>
+
+                    <button class="add-to-cart-btn" data-product-id="${product.id}">Add to cart</button>
                 </div>
             </div>
          `;
     });
+
+    showCheckMark();
 }
+
+
+function showCheckMark(){
+    let timeoutMap = {};
+    const js_add_to_cart_btn_elem = document.querySelectorAll('.add-to-cart-btn');
+    js_add_to_cart_btn_elem.forEach(btn => {
+
+        btn.addEventListener('click', ()=> {
+            const btn_productId = btn.dataset.productId;
+
+            let checkMark_added =  document.querySelector(`.js-checkmark-added-${btn_productId}`);
+            checkMark_added.style.visibility = 'visible';
+
+            if (timeoutMap[btn_productId]) {
+                clearTimeout(timeoutMap[btn_productId]);
+            }
+
+            timeoutMap[btn_productId] = setTimeout(() => {
+                checkMark_added.style.visibility = 'hidden';
+            }, 1000)
+
+        })
+    })
+
+    
+}
+
