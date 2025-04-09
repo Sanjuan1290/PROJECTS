@@ -105,3 +105,24 @@ main{
     font-weight: 300;
     font-size: 14px;
 }
+
+@media(max-width: 1000px){
+    .mid-section{
+        font-size: 20px;
+    }
+    main{
+        flex-direction: column;
+        max-width: 500px;
+    }
+    .order-summary-container{
+        order: -1;
+    }
+    .item-option-container{
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    .item-container{
+        height: fit-content;
+        padding-bottom: 30px;
+    }
+}
