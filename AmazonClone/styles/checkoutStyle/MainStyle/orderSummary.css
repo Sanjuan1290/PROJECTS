@@ -1,0 +1,63 @@
+
+.order-summary-container{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px;
+    border: 1px solid rgba(174, 174, 174, 0.641);
+    min-width: 340px;
+    margin-top: 67px;
+    height: 270px;
+}
+
+.order-summary{
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 12px;
+}
+
+.price-calculation-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-calculation-container div{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 15px;
+}
+
+.price-calculation-container div:nth-child(2){
+    text-align: end;
+}
+
+
+.price-line-1, .price-line-2, .price-line-3{
+    height: 1px;
+    width: 60px;
+    background-color: rgba(200, 194, 194, 0.542);
+    margin: 3px 0px;
+}
+.price-line-1{
+    background-color: transparent;
+}
+.price-line-3{
+    width: auto;
+    margin-top: 8px;
+}
+
+.order-total-container{
+    color: rgb(177,39,4);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.place-your-order{
+    background-color: rgb(254,217,20);
+    border: none;
+    border-radius: 8px;
+    height: 45px;
+    margin-top: 35px;
+}

@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles/checkoutStyle/header.css">
-    <link rel="stylesheet" href="./styles/checkoutStyle/main.css">
+    <link rel="stylesheet" href="./styles/checkoutStyle/MainStyle/orderedItems.css">
+    <link rel="stylesheet" href="./styles/checkoutStyle/MainStyle/orderSummary.css">
     <style>
         *{
             padding: 0;
@@ -32,9 +33,9 @@
     </header>
 
     <main>
-        <p class="review-your-order">Review your order</p>
-
         <div class="item-list-container">
+            <p class="review-your-order">Review your order</p>
+
             <div class="item-container">
                 <p class="delivery-date">Delivery date: Friday, April 18</p>
 
@@ -234,7 +235,35 @@
             </div>
         </div>
 
-        <div class="order-summary-container"></div>
+        <div class="order-summary-container">
+            <p class="order-summary">Order Summary</p>
+
+            <div class="price-calculation-container">
+                <div>
+                    <p>Items (40):</p>
+                    <p>Shipping & handling:</p>
+                    <div class="price-line-1"></div>
+                    <p>Total before tax:</p>
+                    <p>Estimated tax (10%):</p>
+                </div>
+                <div>
+                    <p>$736.41</p>
+                    <p>$9.99</p>
+                    <div class="price-line-2"></div>
+                    <p>$746.40</p>
+                    <p>$74.64</p>
+                </div>
+            </div>
+
+            <div class="price-line-3"></div>
+
+            <div class="order-total-container">
+                <p>Order total:</p>
+                <p>$821.04</p>
+            </div>
+
+            <button class="place-your-order">Place your order</button>
+        </div>
     </main>
 
     <script type="module" src="./scripts/checkoutScript/checkout.js"></script>
