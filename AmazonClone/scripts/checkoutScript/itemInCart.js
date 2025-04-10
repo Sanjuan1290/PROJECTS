@@ -1,6 +1,5 @@
-import { cart, updateCartQuantity, deleteItemInCart} from '../cart.js';
+import { cart, updateCartQuantity, deleteItemInCart, saveCartItems} from '../cart.js';
 import { products } from '../../data/product.js';
-import { renderOrderSummary } from './orderSummary.js';
 
 export function renderCartItems(){
     cart.forEach( item => {
@@ -32,7 +31,7 @@ export function renderCartItems(){
                                 <p>Choose a delivery option:</p>
     
                                 <div class="delivery-option">
-                                    <input type="radio" checked name="option-${item.productId}" value="0">
+                                    <input type="radio" name="option-${item.productId}" value="0">
                                     <div class="option-date-price">
                                         <p>Firday, April 18</p>
                                         <p>FREE Shipping</p>
@@ -64,4 +63,36 @@ export function renderCartItems(){
 
     updateCartQuantity();
     deleteItemInCart();
+}
+
+export function saveDeliveryOption(){
+    
+    cart.forEach( item => {
+        let radioBtnList = document.querySelectorAll(`input[name="option-${item.productId}"]`)
+
+        if(radioBtnList[0].checked){
+            item.deliveryPriceCents = 0;
+        }else if(radioBtnList[1].checked){
+            item.deliveryPriceCents = 499;
+        }else if(radioBtnList[2].checked){
+            item.deliveryPriceCents = 999;
+        }
+        
+        setCheckedRadioBtn(item, radioBtnList);
+    })
+    saveCartItems();
+}
+
+export function setCheckedRadioBtn(item, radioBtnList){
+
+    if(item.deliveryPriceCents == Number(radioBtnList[0].value)){
+        console.log("0");
+        radioBtnList[0].checked = true;
+    }else if(item.deliveryPriceCents == Number(radioBtnList[1].value)){
+        console.log("1");
+        radioBtnList[1].checked = true;
+    }else if(item.deliveryPriceCents == Number(radioBtnList[2].value)){
+        console.log("2");
+        radioBtnList[2].checked = true;
+    }
 }

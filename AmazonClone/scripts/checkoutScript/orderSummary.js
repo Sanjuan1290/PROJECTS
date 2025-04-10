@@ -1,4 +1,5 @@
 import { cart } from '../cart.js';
+import { saveDeliveryOption } from './itemInCart.js'
  
 
 export function renderOrderSummary(){
@@ -57,7 +58,7 @@ export function getShippingPrice(){
 
         document.querySelectorAll(`input[name="option-${item.productId}"]`).forEach( radioBtn => {
             if(radioBtn.checked){
-                totalShippingPrice += (Number(radioBtn.value) / 100)
+                totalShippingPrice += (Number(item.deliveryPriceCents) / 100)
             }
             radioBtn.removeEventListener('click', handleRadioBtnClick)
         })
@@ -80,6 +81,7 @@ export function getTotalPrice(){
     return getPriceBeforeTax() + getTaxPrice()
 }
 
-function handleRadioBtnClick(){
+export function handleRadioBtnClick(){
+    saveDeliveryOption();
     renderOrderSummary();
 }
