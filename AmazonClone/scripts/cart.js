@@ -1,5 +1,6 @@
 import { products } from "../data/product.js";
 import { renderNavBar } from "./amazonScripts/header.js";
+import { renderCheckoutHeader } from './checkoutScript/header.js'
 
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -40,14 +41,6 @@ export function addToCart(productId, quantity){
     renderNavBar();
 }
 
-export function getCartTotalQuantity(){
-    let quantity = 0;
-
-    cart.forEach(item => {
-        quantity += item.quantity
-    })
-    return quantity;
-}
 
 export function saveCartItems(){
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -81,12 +74,14 @@ export function updateCartQuantity(){
                             saveCartItems();
                             updateCartQuantity();
                             deleteItemInCart();
+                            renderCheckoutHeader();
                         })
                     })
                 }
             })
             
             deleteItemInCart();
+            renderCheckoutHeader();
         })
     })
 }
@@ -100,6 +95,7 @@ export function deleteItemInCart(){
 
             deleteBtn.parentElement.parentElement.parentElement.parentElement.remove();
             saveCartItems();
+            renderCheckoutHeader();
         })
     })
 }

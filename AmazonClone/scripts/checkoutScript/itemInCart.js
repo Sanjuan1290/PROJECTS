@@ -1,5 +1,6 @@
 import { cart, updateCartQuantity, deleteItemInCart} from '../cart.js';
 import { products } from '../../data/product.js';
+import { renderOrderSummary } from './orderSummary.js';
 
 export function renderCartItems(){
     cart.forEach( item => {
@@ -31,7 +32,7 @@ export function renderCartItems(){
                                 <p>Choose a delivery option:</p>
     
                                 <div class="delivery-option">
-                                    <input type="radio" name="option1">
+                                    <input type="radio" checked name="option-${item.productId}" value="0">
                                     <div class="option-date-price">
                                         <p>Firday, April 18</p>
                                         <p>FREE Shipping</p>
@@ -39,7 +40,7 @@ export function renderCartItems(){
                                 </div>
     
                                 <div class="delivery-option">
-                                    <input type="radio" name="option1">
+                                    <input type="radio" name="option-${item.productId}" value="499">
                                     <div class="option-date-price">
                                         <p>Monday, April 14</p>
                                         <p>$4.99 - Shipping</p>
@@ -47,7 +48,7 @@ export function renderCartItems(){
                                 </div>
     
                                 <div class="delivery-option">
-                                    <input type="radio" name="option1">
+                                    <input type="radio" name="option-${item.productId}" value="999">
                                     <div class="option-date-price">
                                         <p>Thursday, April 10</p>
                                         <p>$9.99 - Shipping</p>

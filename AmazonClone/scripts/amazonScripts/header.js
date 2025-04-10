@@ -1,4 +1,4 @@
-import {getCartTotalQuantity} from '../cart.js'
+import {getCartTotalQuantity} from '../checkoutScript/orderSummary.js'
 
 const navigation_elem = document.querySelector('.navigation');
 

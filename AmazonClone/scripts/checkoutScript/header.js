@@ -1,3 +1,4 @@
+import { getCartTotalQuantity } from './orderSummary.js'
 
 const js_header_elem = document.querySelector('.js-header');
 
@@ -11,7 +12,7 @@ export function renderCheckoutHeader(){
         </div>
 
         <div class="mid-section">
-            <p>Checkout ( <a href="./amazon.html">40 Items</a> )</p>
+            <p>Checkout ( <a href="./amazon.html">${getCartTotalQuantity()} Items</a> )</p>
         </div>
 
         <div class="right-section">
@@ -25,7 +26,7 @@ export function renderCheckoutHeader(){
         </div>
 
         <div class="mid-section">
-            <p>Checkout ( <a href="./amazon.html">40 Items</a> )</p>
+            <p>Checkout ( <a href="./amazon.html">${getCartTotalQuantity()} Items</a> )</p>
         </div>
 
         <div class="right-section">
