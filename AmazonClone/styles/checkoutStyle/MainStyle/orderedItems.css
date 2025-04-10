@@ -55,6 +55,8 @@ main{
     flex-direction: column;
     gap: 5px;
     font-weight: bold;
+    flex: 1;
+    max-width: 320px;
 }
 
 .item-name-price-quantity-container p:nth-child(2){
@@ -106,7 +108,7 @@ main{
     font-size: 14px;
 }
 
-@media(max-width: 1000px){
+@media(max-width: 1030px){
     .mid-section{
         font-size: 20px;
     }
