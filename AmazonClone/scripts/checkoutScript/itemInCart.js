@@ -1,4 +1,4 @@
-import { cart } from '../cart.js';
+import { cart, updateCartQuantity, deleteItemInCart} from '../cart.js';
 import { products } from '../../data/product.js';
 
 export function renderCartItems(){
@@ -20,10 +20,10 @@ export function renderCartItems(){
                                 <p>${product.name}</p>
                                 <p>$${(product.priceCents / 100).toFixed(2)}</p>
                                 
-                                <div class="quantity-update-delete">
+                                <div class="quantity-update-delete js-quantity-update-delete-${item.productId}">
                                     <p>Quantity: ${item.quantity}</p>
-                                    <button>Update</button>
-                                    <button>Delete</button>
+                                    <button class="js-update-button" data-item-id="${item.productId}">Update</button>
+                                    <button class="js-delete-button" data-item-id="${item.productId}">Delete</button>
                                 </div>
                             </div>
     
@@ -60,4 +60,7 @@ export function renderCartItems(){
             }
         })
     })
+
+    updateCartQuantity();
+    deleteItemInCart();
 }
