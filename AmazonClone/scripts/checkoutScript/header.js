@@ -4,7 +4,7 @@ const js_header_elem = document.querySelector('.js-header');
 
 
 export function renderCheckoutHeader(){
-    
+    if (!js_header_elem) return;
     let HTML_Window = 
     `
         <div class="left-section">

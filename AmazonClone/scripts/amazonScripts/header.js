@@ -3,7 +3,7 @@ import {getCartTotalQuantity} from '../checkoutScript/orderSummary.js'
 const navigation_elem = document.querySelector('.navigation');
 
 export function renderNavBar(){
-    
+    if (!navigation_elem) return;
     let HTML_Computer = 
     `
     <nav>
@@ -17,10 +17,12 @@ export function renderNavBar(){
             </div>
 
             <div class="right-section">
-                <div class="returns_orders">
-                    <p>Returns</p>
-                    <p>& Orders</p>
-                </div>
+                <a href="./././return_orders.html">
+                    <div class="returns_orders">
+                        <p>Returns</p>
+                        <p>& Orders</p>
+                    </div>
+                </a>
 
                 <a href="./././checkout.html" class="link-checkout">
                     <div class="cart">
@@ -53,9 +55,12 @@ export function renderNavBar(){
         </nav>
 
         <div class="burger_click">
-            <div class="return_orders_phone">
-                <p>Returns & Orders</p>
-            </div>
+            <a href="./././return_orders.html">
+                <div class="return_orders_phone">
+                    <p>Returns & Orders</p>
+                </div>
+            </a>
+
 
             <a href="./././checkout.html" class="link-checkout">
                 <div class="cart_phone">
