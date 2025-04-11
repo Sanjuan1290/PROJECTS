@@ -19,10 +19,11 @@ nav{
 .left-section{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     height: calc( 100% - 10px);
     padding: 5px;
     border: 1px solid rgba(255, 255, 255, 0);
+    width: 165px;
 }
 
 .computer_imgIcon{
@@ -37,7 +38,7 @@ nav{
     justify-content: center;
     align-items: center;
     flex: 1;
-    max-width: 800px;
+    max-width: 850px;
     padding: 0px 10px;
 }
 .mid-section input{
@@ -70,6 +71,7 @@ nav{
     align-items: center;
     color: white;
     gap: 1px;
+    padding-left: 15px;
 }
 .right-section a {
     text-decoration: none;
