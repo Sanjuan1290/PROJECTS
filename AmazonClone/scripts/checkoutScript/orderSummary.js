@@ -1,5 +1,5 @@
 import { cart } from '../cart.js';
-import { saveDeliveryOption } from './itemInCart.js'
+import { saveDeliveryOption, renderCartItems } from './itemInCart.js'
  
 
 export function renderOrderSummary(){
@@ -16,8 +16,8 @@ export function renderOrderSummary(){
                 <p>Estimated tax (10%):</p>
             </div>
             <div>
-                <p>$${getItemsTotalPrice()}</p>
-                <p>$${getShippingPrice()}</p>
+                <p>$${getItemsTotalPrice().toFixed(2)}</p>
+                <p>$${getShippingPrice().toFixed(2)}</p>
                 <div class="price-line-2"></div>
                 <p>$${getPriceBeforeTax().toFixed(2)}</p>
                 <p>$${getTaxPrice().toFixed(2)}</p>

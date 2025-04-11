@@ -1,5 +1,6 @@
 import { cart, updateCartQuantity, deleteItemInCart, saveCartItems} from '../cart.js';
 import { products } from '../../data/product.js';
+import {getDeliveryDate, getDate} from '../../data/deliveryDate.js'
 
 export function renderCartItems(){
     cart.forEach( item => {
@@ -9,7 +10,7 @@ export function renderCartItems(){
                 document.querySelector('.item-list-container').innerHTML += 
                 `
                     <div class="item-container">
-                        <p class="delivery-date">Delivery date: Friday, April 18</p>
+                        <p class="delivery-date delivery-date-${product.id}">Delivery date: ${getDeliveryDate(item.deliveryPriceCents)}</p>
     
                         <div class="item-option-container">
                             <div class="item-image-container">
@@ -33,7 +34,7 @@ export function renderCartItems(){
                                 <div class="delivery-option">
                                     <input type="radio" name="option-${item.productId}" value="0">
                                     <div class="option-date-price">
-                                        <p>Firday, April 18</p>
+                                        <p>${getDate(10)}</p>
                                         <p>FREE Shipping</p>
                                     </div>
                                 </div>
@@ -41,7 +42,7 @@ export function renderCartItems(){
                                 <div class="delivery-option">
                                     <input type="radio" name="option-${item.productId}" value="499">
                                     <div class="option-date-price">
-                                        <p>Monday, April 14</p>
+                                        <p>${getDate(7)}</p>
                                         <p>$4.99 - Shipping</p>
                                     </div>
                                 </div>
@@ -49,7 +50,7 @@ export function renderCartItems(){
                                 <div class="delivery-option">
                                     <input type="radio" name="option-${item.productId}" value="999">
                                     <div class="option-date-price">
-                                        <p>Thursday, April 10</p>
+                                        <p>${getDate(3)}</p>
                                         <p>$9.99 - Shipping</p>
                                     </div>
                                 </div>
@@ -79,6 +80,12 @@ export function saveDeliveryOption(){
         }
         
         setCheckedRadioBtn(item, radioBtnList);
+
+            
+        document.querySelector(`.delivery-date-${item.productId}`).innerHTML = 
+        `
+            Delivery date: ${getDeliveryDate(item.deliveryPriceCents)}
+        `;
     })
     saveCartItems();
 }
@@ -86,13 +93,10 @@ export function saveDeliveryOption(){
 export function setCheckedRadioBtn(item, radioBtnList){
 
     if(item.deliveryPriceCents == Number(radioBtnList[0].value)){
-        console.log("0");
         radioBtnList[0].checked = true;
     }else if(item.deliveryPriceCents == Number(radioBtnList[1].value)){
-        console.log("1");
         radioBtnList[1].checked = true;
     }else if(item.deliveryPriceCents == Number(radioBtnList[2].value)){
-        console.log("2");
         radioBtnList[2].checked = true;
     }
 }
