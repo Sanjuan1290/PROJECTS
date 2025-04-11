@@ -1,14 +1,16 @@
 import {getCartTotalQuantity} from '../checkoutScript/orderSummary.js'
 
 const navigation_elem = document.querySelector('.navigation');
+const navigation_order_return_elem = document.querySelector('.navigation-order-return');
 
 export function renderNavBar(){
-    if (!navigation_elem) return;
     let HTML_Computer = 
     `
     <nav>
         <div class="left-section">
-                <img class="computer_imgIcon" src="./images/amazon-logo-white.png" alt="Amazon Logo">
+                <a href="./././amazon.html">
+                    <img class="computer_imgIcon" src="./images/amazon-logo-white.png" alt="Amazon Logo">
+                </a>
             </div>
 
             <div class="mid-section">
@@ -24,7 +26,7 @@ export function renderNavBar(){
                     </div>
                 </a>
 
-                <a href="./././checkout.html" class="link-checkout">
+                <a href="./././checkout.html" class="">
                     <div class="cart">
                         <div class="cart-quantity">
                             <img src="./images/icons/cart-icon.png" alt="cart Icon">
@@ -55,7 +57,7 @@ export function renderNavBar(){
         </nav>
 
         <div class="burger_click">
-            <a href="./././return_orders.html">
+            <a href="./././return_orders.html" class="link-checkout">
                 <div class="return_orders_phone">
                     <p>Returns & Orders</p>
                 </div>
@@ -73,22 +75,35 @@ export function renderNavBar(){
     `;
 
     if(window.innerWidth <= 575){
-        navigation_elem.innerHTML = HTML_Phone;
+        if(navigation_elem){
+            navigation_elem.innerHTML = HTML_Phone;
+        }else if(navigation_order_return_elem){
+            navigation_order_return_elem.innerHTML = HTML_Phone;
+        }else{
+            console.log("error occur");
+            return
+        }
     }else{
-        navigation_elem.innerHTML = HTML_Computer;
+        if(navigation_elem){
+            navigation_elem.innerHTML = HTML_Computer;
+        }else if(navigation_order_return_elem){
+            navigation_order_return_elem.innerHTML = HTML_Computer;
+        }else{
+            console.log("error occur");
+            return
+        }
     }    
     
     const nav_elem = document.querySelector('nav');
     const burgerMenu_elem = document.querySelector('.burgerMenu');
-    const return_orders_phone_elem = document.querySelector('.return_orders_phone')
-    const cart_phone_elem = document.querySelector('.cart_phone')
+    const link_checkout_elem = document.querySelectorAll('.link-checkout')
     
     if (burgerMenu_elem) {
         burgerMenu_elem.addEventListener('click', function () {
             nav_elem.classList.toggle("navPhone");
 
-            return_orders_phone_elem.classList.toggle('show');
-            cart_phone_elem.classList.toggle('show');
+            link_checkout_elem[0].classList.toggle('show');
+            link_checkout_elem[1].classList.toggle('show');
         });
     }
 

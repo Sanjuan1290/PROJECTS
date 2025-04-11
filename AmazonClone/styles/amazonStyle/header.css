@@ -79,6 +79,8 @@ nav{
 .link-checkout{
     text-decoration: none;
     color: white;
+    visibility: hidden;
+    transition: visibility .2s ease;
 }
 
 .burgerMenu{
@@ -149,8 +151,7 @@ nav{
     width: 100%;
     text-align: center;
     padding: 12px 0px;
-    visibility: hidden;
-    transition: visibility .2s ease;
+
 }
 
 .return_orders_phone:hover, .cart_phone:hover {
