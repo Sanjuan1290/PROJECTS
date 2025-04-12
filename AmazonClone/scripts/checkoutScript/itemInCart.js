@@ -3,6 +3,9 @@ import { products } from '../../data/product.js';
 import {getDeliveryDate, getDate} from '../../data/deliveryDate.js'
 
 export function renderCartItems(){
+    if(cart.length == 0){
+        document.querySelector('.item-list-container').innerHTML =  ``;
+    }
     cart.forEach( item => {
         products.forEach( product => {
     

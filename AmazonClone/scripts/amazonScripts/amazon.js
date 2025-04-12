@@ -3,7 +3,9 @@ import { renderNavBar } from "./header.js";
 import { renderProducts} from "./main.js";
 
 
-renderNavBar();
+window.addEventListener('DOMContentLoaded', ()=> {
+    renderNavBar();
+})
 renderProducts(products);
 window.addEventListener('resize', renderNavBar)
 

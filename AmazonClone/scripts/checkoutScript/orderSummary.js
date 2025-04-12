@@ -1,5 +1,7 @@
-import { cart } from '../cart.js';
+import { cart, saveCartItems, clearCart } from '../cart.js';
 import { saveDeliveryOption, renderCartItems } from './itemInCart.js'
+import { saveOrderedProduct, orderedProduct } from '../return_ordersScripts/return_order.js'
+import { renderCheckoutHeader } from './header.js'
  
 
 export function renderOrderSummary(){
@@ -31,8 +33,13 @@ export function renderOrderSummary(){
             <p>$${getTotalPrice().toFixed(2)}</p>
         </div>
 
-        <button class="place-your-order">Place your order</button>
-    `
+        <button class="place-your-order js-place-your-order">Place your order</button>
+    `;
+
+    document.querySelector('.js-place-your-order').addEventListener('click', ()=>{
+        handlePlaceYourOrderClick()
+        // window.location.href = './return_orders.html';
+    })
 }
 
 export function getCartTotalQuantity(){
@@ -85,3 +92,17 @@ export function handleRadioBtnClick(){
     saveDeliveryOption();
     renderOrderSummary();
 }
+
+export function handlePlaceYourOrderClick(){
+    cart.forEach( item =>{
+        orderedProduct.unshift(item)
+    })
+    clearCart();
+    saveCartItems();
+    saveOrderedProduct();
+
+    renderCartItems();
+    renderOrderSummary();
+    renderCheckoutHeader();
+}
+

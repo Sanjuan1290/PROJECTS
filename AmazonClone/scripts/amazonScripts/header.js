@@ -79,18 +79,12 @@ export function renderNavBar(){
             navigation_elem.innerHTML = HTML_Phone;
         }else if(navigation_order_return_elem){
             navigation_order_return_elem.innerHTML = HTML_Phone;
-        }else{
-            console.log("error occur");
-            return
         }
     }else{
         if(navigation_elem){
             navigation_elem.innerHTML = HTML_Computer;
         }else if(navigation_order_return_elem){
             navigation_order_return_elem.innerHTML = HTML_Computer;
-        }else{
-            console.log("error occur");
-            return
         }
     }    
     
