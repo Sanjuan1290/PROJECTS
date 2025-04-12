@@ -2,6 +2,7 @@ import { cart, saveCartItems, clearCart } from '../cart.js';
 import { saveDeliveryOption, renderCartItems } from './itemInCart.js'
 import { saveOrderedProduct, orderedProduct } from '../return_ordersScripts/return_order.js'
 import { renderCheckoutHeader } from './header.js'
+import { getOrderedDate, getDeliveryDate } from '../../data/deliveryDate.js'
  
 
 export function renderOrderSummary(){
@@ -93,14 +94,29 @@ export function handleRadioBtnClick(){
     renderOrderSummary();
 }
 
+function saveDeliveryDate(){
+
+}
+
 export function handlePlaceYourOrderClick(){
-    cart.forEach( item =>{
-        orderedProduct.unshift(item)
-    })
+    const totalPrice = Number(getTotalPrice().toFixed(2))
+
+    if(cart.length > 0){
+        orderedProduct.unshift({
+            cart: cart, 
+            totalPrice: totalPrice,
+            orderedDate: getOrderedDate()
+        })
+    }
+    
+
     clearCart();
     saveCartItems();
     saveOrderedProduct();
 
+    
+    console.log(orderedProduct);
+    console.log(cart);
     renderCartItems();
     renderOrderSummary();
     renderCheckoutHeader();
