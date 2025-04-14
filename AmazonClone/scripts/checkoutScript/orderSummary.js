@@ -39,7 +39,7 @@ export function renderOrderSummary(){
 
     document.querySelector('.js-place-your-order').addEventListener('click', ()=>{
         handlePlaceYourOrderClick()
-        // window.location.href = './return_orders.html';
+        window.location.href = './return_orders.html';
     })
 }
 

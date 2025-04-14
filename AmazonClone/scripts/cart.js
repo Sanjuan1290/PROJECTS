@@ -22,6 +22,7 @@ export function addToCart(productId, quantity){
             }else{
                 cart.push({
                     productId: product.id,
+                    name: product.name,
                     priceCents: product.priceCents,
                     quantity: quantity,
                     deliveryPriceCents: 0,
