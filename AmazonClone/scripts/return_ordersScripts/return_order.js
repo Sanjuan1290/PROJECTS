@@ -1,6 +1,6 @@
 import { renderNavBar } from "../amazonScripts/header.js";
-import { handlePlaceYourOrderClick } from '../checkoutScript/orderSummary.js';
-import { getOrderedDate, getDeliveryDate } from '../../data/deliveryDate.js'
+import { getDeliveryDate } from '../../data/deliveryDate.js'
+import { addToCart } from '../cart.js';
 /*
     cart: cart,
     totalPrice: totalPrice,
@@ -22,7 +22,6 @@ export function saveOrderedProduct(){
 
 
  function renderOrderedItems(){
-    console.log("ds");
     document.querySelector('.orderedItems-container').innerHTML =
     `
         <p class="your-orders-p">Your Orders</p>
@@ -59,8 +58,8 @@ export function saveOrderedProduct(){
     `;
 
     })
-    
 
+    handleItemDateBtn();
 }
 
 function renderMid_Section(orderItem){
@@ -76,7 +75,7 @@ function renderMid_Section(orderItem){
                 <p>${cartItem.name}</p>
                 <p>Arriving on: ${getDeliveryDate(cartItem.deliveryPriceCents)}</p>
                 <p>Quantitiy: ${cartItem.quantity}</p>
-                <button class="item-data-button">
+                <button class="item-data-button" data-item-id="${cartItem.productId}">
                     <img src="./images/icons/buy-again.png">
                     <p>Buy it again</p>
                 </button>
@@ -91,7 +90,15 @@ function renderMid_Section(orderItem){
 
     return midSectionHTML;
 }
+function handleItemDateBtn(){
+    document.querySelectorAll('.item-data-button').forEach(btn => {
+        const itemId = btn.dataset.itemId;
 
+        btn.addEventListener('click', () => {
+            addToCart(itemId, 1)
+        })
+    })
+}
 window.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('.orderedItems-container')){
         renderOrderedItems();
