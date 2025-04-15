@@ -46,7 +46,7 @@ export function saveOrderedProduct(){
 
                 <div class="top-section order-id-container">
                     <p>Order ID:</p>
-                    <p>f34655ab-3116-a150-550f-c64d55ac9cd2</p>
+                    <p>${orderItem.orderId}</p>
                 </div>
             </div>
 
@@ -104,3 +104,4 @@ window.addEventListener('DOMContentLoaded', () => {
         renderOrderedItems();
     }
 })
+

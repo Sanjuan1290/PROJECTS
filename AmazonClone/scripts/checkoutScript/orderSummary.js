@@ -94,18 +94,17 @@ export function handleRadioBtnClick(){
     renderOrderSummary();
 }
 
-function saveDeliveryDate(){
-
-}
 
 export function handlePlaceYourOrderClick(){
     const totalPrice = Number(getTotalPrice().toFixed(2))
+    let id = crypto.randomUUID();
 
     if(cart.length > 0){
         orderedProduct.unshift({
             cart: cart, 
             totalPrice: totalPrice,
-            orderedDate: getOrderedDate()
+            orderedDate: getOrderedDate(),
+            orderId: id
         })
     }
     
