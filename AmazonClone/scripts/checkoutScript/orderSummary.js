@@ -99,6 +99,10 @@ export function handlePlaceYourOrderClick(){
     const totalPrice = Number(getTotalPrice().toFixed(2))
     let id = crypto.randomUUID();
 
+    cart.forEach(item => {
+        item.deliveryDate = getDeliveryDate(item.deliveryPriceCents);
+    })
+
     if(cart.length > 0){
         orderedProduct.unshift({
             cart: cart, 

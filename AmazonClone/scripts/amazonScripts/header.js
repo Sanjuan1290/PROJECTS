@@ -2,6 +2,7 @@ import {getCartTotalQuantity} from '../checkoutScript/orderSummary.js'
 
 const navigation_elem = document.querySelector('.navigation');
 const navigation_order_return_elem = document.querySelector('.navigation-order-return');
+const navigation_tracking_elem = document.querySelector('.navigation-tracking');
 
 export function renderNavBar(){
     let HTML_Computer = 
@@ -79,13 +80,18 @@ export function renderNavBar(){
             navigation_elem.innerHTML = HTML_Phone;
         }else if(navigation_order_return_elem){
             navigation_order_return_elem.innerHTML = HTML_Phone;
+        }else if(navigation_tracking_elem){
+            navigation_tracking_elem.innerHTML = HTML_Phone;;
         }
     }else{
         if(navigation_elem){
             navigation_elem.innerHTML = HTML_Computer;
         }else if(navigation_order_return_elem){
             navigation_order_return_elem.innerHTML = HTML_Computer;
+        }else if(navigation_tracking_elem){
+            navigation_tracking_elem.innerHTML = HTML_Computer;
         }
+        
     }    
     
     const nav_elem = document.querySelector('nav');

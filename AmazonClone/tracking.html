@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking</title>
+
+    <link rel="icon" href="./images/amazonIcon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/amazonStyle/header.css">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Roboto, "Arial";
+        }
+
+
+        main{
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 100px auto;
+            width: calc(100% - 40px);
+            max-width: 810px;
+            gap: 5px;
+            padding: 0px 20px;
+        }
+
+        main a {
+            color: rgb(37, 120, 188);
+            padding-bottom: 25px;
+        }
+
+        main img{
+            margin-top: 25px;
+            margin-bottom: 40px;
+            width: 150px;
+        }
+
+        .tracking-order-status{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .tracking-order-status p{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .tracking-order-arriving-bar-container{
+            margin-top: 15px;
+            width: 100%;
+            height: 25px;
+            border: 1px solid rgba(128, 128, 128, 0.619);
+            border-radius: 20px;
+        }
+        .arriving-bar{
+            background-color: green;
+            height: 100%;
+            border-radius: 20px;
+            transition: width .15s ease-out;
+            width: 0px;
+        }
+
+        .arriving-font-color{
+            color: green;
+        }
+
+        .preparingStyle-bar{
+            width: 40px;
+        }
+        .shippedStyle-bar{
+            width: 50%;
+        }
+        .Delivered-bar{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="navigation-tracking">
+    </header>
+
+    <main>
+        <a href="./return_orders.html">View all orders</a>
+
+        <h2>Arriving on Thusday, April 24</h2>
+        <p class="tracking-order-name">2 Slot Toaster Black</p>
+        <p class="tracking-order-quantity">Quantity: 2</p>
+
+        <img src="./images/products/black-2-slot-toaster.jpg">
+
+        <div class="tracking-order-status">
+            <p class="tracking-order-Preparing arriving-font-color">Preparing</p>
+            <p class="tracking-order-Shipped">Shipped</p>
+            <p class="tracking-order-Delivered">Delivered</p>
+
+            <div class="tracking-order-arriving-bar-container">
+                <div class="arriving-bar preparingStyle-bar"></div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="./scripts/trackingScripts/tracking.js"></script>
+</body>
+</html>

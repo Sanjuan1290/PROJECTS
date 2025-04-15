@@ -26,7 +26,9 @@ export function addToCart(productId, quantity){
                     priceCents: product.priceCents,
                     quantity: quantity,
                     deliveryPriceCents: 0,
+                    deliveryDate: "",
                     image: product.image
+                    
                 })
             }
         }

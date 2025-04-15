@@ -58,8 +58,7 @@ export function saveOrderedProduct(){
     `;
 
     })
-
-    handleItemDateBtn();
+    handleItemDataBtn();
 }
 
 function renderMid_Section(orderItem){
@@ -73,7 +72,7 @@ function renderMid_Section(orderItem){
 
             <div class="item-data-container">
                 <p>${cartItem.name}</p>
-                <p>Arriving on: ${getDeliveryDate(cartItem.deliveryPriceCents)}</p>
+                <p>Arriving on: ${cartItem.deliveryDate}</p>
                 <p>Quantitiy: ${cartItem.quantity}</p>
                 <button class="item-data-button" data-item-id="${cartItem.productId}">
                     <img src="./images/icons/buy-again.png">
@@ -82,7 +81,7 @@ function renderMid_Section(orderItem){
             </div>
 
             <div class="track-package-container">
-                <button>Track package</button>
+                <button class="js-track-btn" data-item-id="${cartItem.productId}" data-order-id="${orderItem.orderId}">Track package</button>
             </div>
         </div>
     `
@@ -90,7 +89,7 @@ function renderMid_Section(orderItem){
 
     return midSectionHTML;
 }
-function handleItemDateBtn(){
+function handleItemDataBtn(){
     document.querySelectorAll('.item-data-button').forEach(btn => {
         const itemId = btn.dataset.itemId;
 
@@ -101,7 +100,23 @@ function handleItemDateBtn(){
 }
 window.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('.orderedItems-container')){
+        
         renderOrderedItems();
+        
+        document.querySelectorAll(`.js-track-btn`).forEach(btn => {
+            const itemId = btn.dataset.itemId;
+            const orderId = btn.dataset.orderId;
+
+            btn.addEventListener('click', () => {
+                const url = new URL(window.location.href)
+
+                url.searchParams.set("orderId", orderId)
+                url.searchParams.set("itemId", itemId)
+                url.pathname = '/AmazonClone/tracking.html'
+                
+                window.location.href = url.toString()
+            })
+        })
     }
 })
 
