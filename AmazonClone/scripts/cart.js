@@ -27,8 +27,8 @@ export function addToCart(productId, quantity){
                     quantity: quantity,
                     deliveryPriceCents: 0,
                     deliveryDate: "",
-                    image: product.image
-                    
+                    image: product.image,
+                    isDelivered: false
                 })
             }
         }
