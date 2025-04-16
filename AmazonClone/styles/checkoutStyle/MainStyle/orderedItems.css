@@ -135,3 +135,16 @@ main{
     font-size: 15px;
     padding: 2px 5px;
 }
+
+.viewProduct_btn button{
+    width: 130px;
+    background-color: rgb(255,216,20);
+    font-size: 16px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+.viewProduct_btn button:hover{
+    cursor: pointer;
+    background-color: rgb(242, 211, 57);
+}

@@ -4,7 +4,11 @@ import {getDeliveryDate, getDate} from '../../data/deliveryDate.js'
 
 export function renderCartItems(){
     if(cart.length == 0){
-        document.querySelector('.item-list-container').innerHTML =  ``;
+        document.querySelector('.item-list-container').innerHTML =  `
+            <p class="review-your-order">Review your order</p>
+            <p>Your cart is empty.</p>
+            <a class="viewProduct_btn" href="././amazon.html"><button>View products</button></a>
+        `;
     }
     cart.forEach( item => {
         products.forEach( product => {
