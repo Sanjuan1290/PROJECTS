@@ -18,6 +18,7 @@ function renderTrackingDisplay(){
     const itemId = url.searchParams.get("itemId")
 
     let productInfo = getList(orderId, itemId);
+
     tracking_main_container_HTML.innerHTML = 
     `
         <a href="./return_orders.html">View all orders</a>
@@ -34,10 +35,12 @@ function renderTrackingDisplay(){
             <p class="tracking-order-Delivered">Delivered</p>
 
             <div class="tracking-order-arriving-bar-container">
-                <div class="arriving-bar preparingStyle-bar"></div>
+                <div class="arriving-bar"></div>
             </div>
         </div>
     `;
+
+    renderStatusBar(productInfo.status);
 }
 
 function getList(orderId, itemId){
@@ -109,4 +112,21 @@ function checkOrderStatus(cartItem) {
     } else {
         return 'Delivered';
     }
+}
+
+function renderStatusBar(status){
+    const arriving_bar_elem = document.querySelector('.arriving-bar');
+
+    arriving_bar_elem.classList.remove('preparingStyle-bar', 'shippedStyle-bar', 'Delivered-bar')
+
+    setTimeout(() => {
+        if(status == 'Preparing'){
+            arriving_bar_elem.classList.add('preparingStyle-bar')
+        }else if(status == 'Shipped'){
+            arriving_bar_elem.classList.add('shippedStyle-bar')
+        }
+        else if(status == 'Delivered'){
+            arriving_bar_elem.classList.add('Delivered-bar')
+        }
+    }, 50)
 }
