@@ -5,7 +5,6 @@ main{
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
 }
 
 .your-orders-p{
