@@ -45,6 +45,7 @@ function getList(orderId, itemId){
     let deliveryDate;
     let name;
     let quantity;
+    let status;
 
     orderedProduct.forEach(orderItem => {
         if(orderItem.orderId == orderId){
@@ -54,6 +55,7 @@ function getList(orderId, itemId){
                     deliveryDate = `${isDelivered(cartItem)} ${cartItem.deliveryDate}`
                     name = cartItem.name
                     quantity = cartItem.quantity
+                    status = checkOrderStatus(cartItem)
                     return
                 }
             })
@@ -63,7 +65,8 @@ function getList(orderId, itemId){
     return {image: image,
             deliveryDate: deliveryDate, 
             name: name, 
-            quantity: quantity};
+            quantity: quantity,
+            status: status};
 }
 
 
@@ -78,5 +81,32 @@ function isDelivered(cartItem) {
         return 'Delivered on';
     } else {
         return 'Arriving on';
+    }
+}
+
+function checkOrderStatus(cartItem) {
+    const currentDate = new Date();
+    const deliveryDate = new Date(`${cartItem.deliveryDate}, ${currentDate.getFullYear()}`);
+
+    const timeDiff = deliveryDate - currentDate;
+    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+    let deliveryNumberDays;
+    if (cartItem.deliveryPriceCents == 0) {
+        deliveryNumberDays = 10;
+    } else if (cartItem.deliveryPriceCents == 499) {
+        deliveryNumberDays = 7;
+    } else if (cartItem.deliveryPriceCents == 999) {
+        deliveryNumberDays = 3;
+    }
+
+    const shipThreshold = deliveryNumberDays - Math.floor(deliveryNumberDays / 3);
+
+    if (daysLeft > shipThreshold) {
+        return 'Preparing';
+    } else if (daysLeft > 0 && daysLeft <= shipThreshold) {
+        return 'Shipped';
+    } else {
+        return 'Delivered';
     }
 }

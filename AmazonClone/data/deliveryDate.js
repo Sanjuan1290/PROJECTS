@@ -32,7 +32,6 @@ export function getDeliveryDate(cartDeliveryOption){
     }else if(cartDeliveryOption == 999){
         return getDate(3);
     }else return "Error occur!"
-    
 }
 
 export function getOrderedDate(){
