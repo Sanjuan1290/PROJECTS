@@ -2,7 +2,7 @@ import { addToCart } from '../cart.js';
 let main_grid_elem = document.querySelector(`.main-grid`);
 
 export function renderProducts(products){
-
+    main_grid_elem.innerHTML = ``;
     products.forEach((product) => {
 
         main_grid_elem.innerHTML +=     

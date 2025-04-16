@@ -1,8 +1,12 @@
 import {getCartTotalQuantity} from '../checkoutScript/orderSummary.js'
+import { products } from '../../data/product.js';
+import { renderProducts } from '../amazonScripts/main.js'
 
 const navigation_elem = document.querySelector('.navigation');
 const navigation_order_return_elem = document.querySelector('.navigation-order-return');
 const navigation_tracking_elem = document.querySelector('.navigation-tracking');
+
+
 
 export function renderNavBar(){
     let HTML_Computer = 
@@ -15,7 +19,7 @@ export function renderNavBar(){
             </div>
 
             <div class="mid-section">
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search" class="searchInput">
                 <img src="./images/icons/search-icon.png" alt="searchIcon">
             </div>
 
@@ -48,7 +52,7 @@ export function renderNavBar(){
             </div>
 
             <div class="mid-section">
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search" class="searchInput">
                 <img src="./images/icons/search-icon.png" alt="searchIcon">
             </div>
 
@@ -91,9 +95,9 @@ export function renderNavBar(){
         }else if(navigation_tracking_elem){
             navigation_tracking_elem.innerHTML = HTML_Computer;
         }
-        
     }    
     
+    handleSearchInput();
     const nav_elem = document.querySelector('nav');
     const burgerMenu_elem = document.querySelector('.burgerMenu');
     const link_checkout_elem = document.querySelectorAll('.link-checkout')
@@ -107,4 +111,28 @@ export function renderNavBar(){
         });
     }
 
+}
+
+
+function handleSearchInput(){
+    const main_grid_elem = document.querySelector(`.main-grid`);
+    const searchInput_elem = document.querySelector(`.searchInput`);
+
+
+    searchInput_elem.addEventListener('keydown', (event) => {
+
+        if(event.key == 'Enter'){
+            let input = searchInput_elem.value.toLowerCase();
+            let searchedProducts = products.filter(product => {
+                return product.name.toLocaleLowerCase().includes(input)
+            })
+            
+            if(searchedProducts.length != 0){
+                renderProducts(searchedProducts)
+            }else{
+                main_grid_elem.innerHTML = `<h3 style="margin: 10px 0px 0px 10px">Item does not exist!</h3>`;
+            }
+        }
+
+    })
 }
