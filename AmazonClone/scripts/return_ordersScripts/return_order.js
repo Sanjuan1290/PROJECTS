@@ -112,7 +112,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 url.searchParams.set("orderId", orderId)
                 url.searchParams.set("itemId", itemId)
-                url.pathname = '/AmazonClone/tracking.html'
+                const currentPath = window.location.pathname.split('/').slice(0, -1).join('/');
+                url.pathname = `${currentPath}/tracking.html`;
                 
                 window.location.href = url.toString()
             })
