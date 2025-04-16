@@ -75,7 +75,7 @@ export function renderNavBar(){
         </div>
     `;
 
-    if(window.innerWidth <= 575){
+    if(window.innerWidth <= 575 || window.innerWidth <= 630){
         if(navigation_elem){
             navigation_elem.innerHTML = HTML_Phone;
         }else if(navigation_order_return_elem){

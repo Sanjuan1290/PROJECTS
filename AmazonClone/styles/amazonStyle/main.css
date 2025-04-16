@@ -109,6 +109,11 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+@media (max-width: 630px){
+    .main-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
 @media (max-width: 600px){
     .main-grid{
         grid-template-columns: 1fr 1fr;
