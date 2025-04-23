@@ -118,12 +118,17 @@ function handleSearchInput(){
     const main_grid_elem = document.querySelector(`.main-grid`);
     const searchInput_elem = document.querySelector(`.searchInput`);
 
+    if(!searchInput_elem){
+        return
+    }
 
-    searchInput_elem.addEventListener('keydown', (event) => {
+    searchInput_elem.addEventListener('keydown', async (event) => {
 
         if(event.key == 'Enter'){
             let input = searchInput_elem.value.toLowerCase();
-            let searchedProducts = products.filter(product => {
+
+            let productsList = await products;
+            let searchedProducts =  productsList.filter(product => {
                 return product.name.toLocaleLowerCase().includes(input)
             })
             

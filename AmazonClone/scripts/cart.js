@@ -11,31 +11,34 @@ if(!cart){
 
 
 export function addToCart(productId, quantity){
-
-    products.forEach(product => {
-        if(product.id == productId){
-
-            const existingItem = cart.find(item => productId == item.productId)
-
-            if(existingItem){
-                existingItem.quantity += quantity;
-            }else{
-                cart.push({
-                    productId: product.id,
-                    name: product.name,
-                    priceCents: product.priceCents,
-                    quantity: quantity,
-                    deliveryPriceCents: 0,
-                    deliveryDate: "",
-                    image: product.image,
-                    isDelivered: false
-                })
+    
+    products.then(data => {
+        data.forEach(product => {
+            if(product.id == productId){
+    
+                const existingItem = cart.find(item => productId == item.productId)
+    
+                if(existingItem){
+                    existingItem.quantity += quantity;
+                }else{
+                    cart.push({
+                        productId: product.id,
+                        name: product.name,
+                        priceCents: product.priceCents,
+                        quantity: quantity,
+                        deliveryPriceCents: 0,
+                        deliveryDate: "",
+                        image: product.image,
+                        isDelivered: false
+                    })
+                }
             }
-        }
+        })
+        console.log(cart);
+        saveCartItems();
+        renderNavBar();
     })
-    console.log(cart);
-    saveCartItems();
-    renderNavBar();
+
 }
 
 
