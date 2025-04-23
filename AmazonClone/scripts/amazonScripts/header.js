@@ -129,7 +129,15 @@ function handleSearchInput(){
 
             let productsList = await products;
             let searchedProducts =  productsList.filter(product => {
-                return product.name.toLocaleLowerCase().includes(input)
+                const keywords = product.keywords
+                
+                for(let keyword of keywords){
+                    if(input == keyword.toLowerCase()){
+
+                        return true
+                    }
+                }
+                return product.name.toLowerCase().includes(input)
             })
             
             if(searchedProducts.length != 0){
