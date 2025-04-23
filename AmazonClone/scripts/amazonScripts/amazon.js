@@ -3,10 +3,11 @@ import { renderNavBar } from "./header.js";
 import { renderProducts} from "./main.js";
 
 
-window.addEventListener('DOMContentLoaded', ()=> {
+window.addEventListener('DOMContentLoaded', async ()=> {
     renderNavBar();
+    
+    renderProducts(await products);
 })
-renderProducts(products);
 window.addEventListener('resize', renderNavBar)
 
 

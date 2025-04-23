@@ -1,4 +1,24 @@
 
+
+async function fetchProductsAPI(){
+  
+  try{
+    const requestProductsJson = await fetch('https://supersimplebackend.dev/products', {
+      headers: {
+        accepts: 'application/json'
+      }
+    })
+  
+    const response = await requestProductsJson.json()
+  
+    return response
+  } catch {
+    console.log("Error Occur: fetch error");
+  }
+}
+
+export const products = fetchProductsAPI();
+/*
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -659,4 +679,4 @@ export const products = [
     ]
   }
 ]
-
+*/
