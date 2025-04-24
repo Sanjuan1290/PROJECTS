@@ -132,7 +132,7 @@ function handleSearchInput(){
                 const keywords = product.keywords
                 
                 for(let keyword of keywords){
-                    if(input == keyword.toLowerCase()){
+                    if(keyword.toLowerCase().includes(input)){
 
                         return true
                     }
